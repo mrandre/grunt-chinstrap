@@ -12,8 +12,8 @@ module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
-
-  grunt.registerMultiTask('chinstrap', 'A grunt plugin to compile chinstrap plugins', function() {
+  var chinstrap = require("chinstrap")
+  grunt.registerMultiTask('chinstrap', 'A grunt plugin to compile chinstrap templates', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       punctuation: '.',
@@ -33,7 +33,8 @@ module.exports = function(grunt) {
         }
       }).map(function(filepath) {
         // Read file source.
-        return grunt.file.read(filepath);
+        var template = grunt.file.read(filepath);
+		console.log("Template content.", template);
       }).join(grunt.util.normalizelf(options.separator));
 
       // Handle options.
