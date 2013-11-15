@@ -40,6 +40,6 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "chinstrap": "0.0.4"
+    "chinstrap-engine": "~0.8.0"
   }
 }
