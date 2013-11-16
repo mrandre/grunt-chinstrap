@@ -46,7 +46,7 @@ We're assuming you have a bunch of template files you want to compile into a Jav
 Ex:
 
 ```js
-wrap: 'MyApp.importTemplates(***)'
+wrap: 'MyApp.importTemplates(***);'
 ```
 
 #### options.skipRender
@@ -59,7 +59,7 @@ Note: You probably won't use this much.
 
 #### options.banner
 Type: `String'
-Default value: ```js /* Compiled with Chinstrap version ' + VERSION + ' ' + new Date().toString() + '*/\n\n```
+Default value: "/* Compiled with Chinstrap version ' + VERSION + ' ' + new Date().toString() + '*/\n\n'"
 
 This will be pasted at the top of the generated file. Default is the current Chinstrap version used, and a timestamp. Simple as that.
 
