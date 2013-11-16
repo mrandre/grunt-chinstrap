@@ -37,17 +37,31 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.wrap
 Type: `String`
-Default value: `',  '`
+Default value: `null`
 
-A string value that is used to do something with whatever.
+We're assuming you have a bunch of template files you want to compile into a JavaScript object. By default, this will pop out as a name/value pair of "base-name of the template file: compiled function". We assume you'll want to insert this into your app with some code. `wrap` is a little pattern string to add your callback. Set it to a string, and use `***` to represent where the templates will go.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+Ex:
 
-A string value that is used to do something else with whatever else.
+```js
+wrap: 'MyApp.importTemplates(***)'
+```
+
+#### options.skipRender
+Type: `Boolean`
+Default value: `false`
+
+We find chinstrap can be handy for bundling up plain text files, in addition to templates. This option lets you skip the template rendering step and gives you the same bundling and wrapping.
+
+Note: You probably won't use this much.
+
+#### options.banner
+Type: `String'
+Default value: ```js /* Compiled with Chinstrap version ' + VERSION + ' ' + new Date().toString() + '*/\n\n```
+
+This will be pasted at the top of the generated file. Default is the current Chinstrap version used, and a timestamp. Simple as that.
 
 ### Usage Examples
 
@@ -66,7 +80,7 @@ grunt.initConfig({
 ```
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+
 
 ```js
 grunt.initConfig({
