@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 			template = grunt.file.read(filepath);
 			grunt.verbose.writeln("Template content: " + template);
 			if (options.skipRender) {
-				compiled = template;
+				compiled = "'" + template + "'";
 			} else {
 				fn = new Function("config", chinstrap.render(template));
 				compiled = fn.toString();
