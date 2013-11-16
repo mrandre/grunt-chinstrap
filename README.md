@@ -59,7 +59,7 @@ Note: You probably won't use this much.
 
 #### options.banner
 Type: `String'
-Default value: "/* Compiled with Chinstrap version ' + VERSION + ' ' + new Date().toString() + '*/\n\n'"
+Default value: `"/* Compiled with Chinstrap version ' + VERSION + ' ' + new Date().toString() + '*/\n\n'"`
 
 This will be pasted at the top of the generated file. Default is the current Chinstrap version used, and a timestamp. Simple as that.
 
@@ -72,10 +72,11 @@ In this example, the default options are used to do something with whatever. So 
 grunt.initConfig({
   chinstrap: {
     options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    main: {
+      src: ['/src/modules/**/*.template.html'],
+      dest: 'public/build/js/templates.js'
+    }
+  }
 })
 ```
 
@@ -86,13 +87,13 @@ grunt.initConfig({
 grunt.initConfig({
   chinstrap: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      wrap: 'BookApp.importTemplateData(***);'
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    main: {
+      src: ['/src/modules/**/*.template.html']
+      dest: 'public/build/js/templates.js'
+    }
+  }
 })
 ```
 
